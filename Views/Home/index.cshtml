@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model User
+
+<div class="container">
+    <h1 class="text-center display-4">Welcome the Wedding Planner</h1><br><br>
+<div class="flaot-right"><p>Returning User <a href="/login">Log In</a></p></div>
+</div>
+<div class="container">
+    <form action="/register" method="POST">
+        <h3>Registration</h3>
+        <br>
+        <div class="form-group">
+            <label asp-for="FirstName">First Name:</label>
+            <input type="text" class="form-control" asp-for="FirstName">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName">Last Name:</label>
+            <input type="text" class="form-control" asp-for="LastName" >
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Email address:</label>
+            <input type="email" class="form-control" asp-for="Email" >
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Password:</label>
+            <input type="password" class="form-control" asp-for="Password" required>
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Confirm Password:</label>
+            <input type="password" class="form-control" asp-for="Password">
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <!-- <input class="form-check-input" type="checkbox"> Remember me -->
+            </label>
+        </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>

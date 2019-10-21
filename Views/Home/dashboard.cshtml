@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"> <h2 class="float-left">Welcome to The Wedding Planner</h2> <a class="float-right" href="logout">Log Out</a></div>
+    @model List<Wedding>
+    <div class="container">
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Wedding</th>
+      <th scope="col">Date</th>
+      <th scope="col">Guest</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var x in Model)
+      {
+    <tr>
+      <th scope="row">@x.WeddingId</th>
+      <td>@x.Bride and @x.Groom</td>
+      <td>@x.Date</td>
+      <td>@x.Guests.Count</td>
+      <td>
+          @if(@ViewBag.CurrentUser == @x.UserId)
+          {
+        <a href="/delete/@x.WeddingId">Delete |</a>
+          }
+          else if(@x.Guests.Any(w => w.UserId == @ViewBag.CurrentUser))
+          {
+        <a href="/RemoveUsertoWedding/@x.WeddingId/@ViewBag.CurrentUser">un-RSVP |</a>
+          }
+          else
+          {
+        <a href="/AddUsertoWedding/@x.WeddingId">RSVP |</a>
+          }
+        <a href="/details/@x.WeddingId">Details</a>
+
+      </td>
+    </tr>
+      }
+  </tbody>
+</table><br><br>
+<a class="float-right my-5" href="/new">New Wedding</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Wedding</title>
+</head>
+<body>
+    <div class="container">
+        <h3 class="float-left">Plan Your Wedding</h3> <div class="float-right"> <a href="/dashboard">Dashboard |</a> <a href="/">Log Out</a></div>
+    </div><br><br><br>
+    @model Wedding
+    <div class="row mt-3">
+        <form action="/Bob" method="POST">
+        <label>Bride: <input type="text" asp-for="Bride"></label><br>
+        <label>Groom: <input type="text" asp-for="Groom"></label><br>
+        <label>Date: <input type="date" asp-for="Date"></label><br>
+        <label>Wedding Address: <input type="text" asp-for="Address"></label><br><br>
+        <button class="btn-btn btn-primary my-5">Create</button>
+        </form>
+    </div>
+</body>
+</html>
